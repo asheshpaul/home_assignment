@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_assignment/presentation/views/widgets/page_view_screen.dart';
+import 'package:home_assignment/presentation/views/widgets/section_divider.dart';
 
 class ScreenOne extends StatelessWidget {
   const ScreenOne({super.key});
@@ -86,25 +87,6 @@ class HealthTipsTile extends StatelessWidget {
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
       subtitle: Text(subtitle, style: TextStyle(color: Colors.white54)),
-    );
-  }
-}
-
-class SectionDivider extends StatelessWidget {
-  const SectionDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
-      child: SizedBox(
-          width: 80,
-          child: Divider(
-            thickness: 3,
-            color: Colors.white38,
-          )),
     );
   }
 }
