@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_assignment/presentation/theme/app_colors.dart';
 
 import '../../cubits/home_page_cubit.dart';
 
@@ -20,7 +21,7 @@ class PageIndicator extends StatelessWidget {
               height: 16.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: state == index ? Colors.blue : Colors.grey,
+                color: state == index ? AppColors.activeIndicator : AppColors.inActiveIndicator,
               ),
             );
           }),

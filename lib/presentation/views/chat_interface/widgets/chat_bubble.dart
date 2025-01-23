@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_assignment/presentation/theme/app_colors.dart';
 
 enum SenderType { sender, receiver }
 
@@ -27,7 +28,7 @@ class ChatBubble extends StatelessWidget {
             padding:
                 const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: isSender ? Colors.blueAccent : Colors.grey[300],
+              color: isSender ? AppColors.senderBubbleBg : AppColors.receiverBubbleBg,
               borderRadius: BorderRadius.only(
                 bottomLeft: isSender ? const Radius.circular(8.0) : Radius.zero,
                 bottomRight:
@@ -42,8 +43,9 @@ class ChatBubble extends StatelessWidget {
             child: Text(
               message,
               style: TextStyle(
-                color: isSender ? Colors.white : Colors.black87,
+                color: isSender ? AppColors.receiverBubbleBg : AppColors.senderBubbleBg,
                 fontSize: 16.0,
+                fontWeight: FontWeight.w600
               ),
             ),
           ),
@@ -51,7 +53,7 @@ class ChatBubble extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(messageTime,
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontSize: 12.0,
                 )),
           ),

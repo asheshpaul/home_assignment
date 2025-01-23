@@ -13,7 +13,7 @@ class ScreenOne extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: CircleAvatar(
             radius: 40,
-            backgroundColor: Colors.blue.shade200,
+            backgroundColor: Colors.deepPurple.shade200,
             child: Icon(
               Icons.face,
               size: 56,
@@ -85,7 +85,7 @@ class HealthTipsTile extends StatelessWidget {
         title,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      subtitle: Text(subtitle),
+      subtitle: Text(subtitle, style: TextStyle(color: Colors.white54)),
     );
   }
 }
@@ -99,8 +99,12 @@ class SectionDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0),
-      child:
-          SizedBox(width: 80, child: Divider(thickness: 3, color: Colors.grey)),
+      child: SizedBox(
+          width: 80,
+          child: Divider(
+            thickness: 3,
+            color: Colors.white38,
+          )),
     );
   }
 }
