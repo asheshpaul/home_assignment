@@ -7,6 +7,8 @@ import 'package:home_assignment/presentation/views/chat_interface/chat_interface
 import 'package:home_assignment/presentation/views/widgets/page_indicator.dart';
 import 'package:home_assignment/presentation/views/widgets/page_view_screen.dart';
 
+import 'screen_one/screen_one.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
                     context.read<HomePageCubit>().setPage(index);
                   },
                   children: [
-                    PageViewScreen(index: '1'),
+                    ScreenOne(),
                     ChatInterfaceScreen(),
                     PageViewScreen(index: '3'),
                   ],
@@ -37,42 +39,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class HealthTipsTile extends StatelessWidget {
-  final String title, subtitle;
-
-  const HealthTipsTile({
-    super.key,
-    required this.title,
-    required this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      ),
-      subtitle: Text(subtitle),
-    );
-  }
-}
-
-class SectionDivider extends StatelessWidget {
-  const SectionDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
-      child:
-          SizedBox(width: 80, child: Divider(thickness: 3, color: Colors.grey)),
     );
   }
 }
