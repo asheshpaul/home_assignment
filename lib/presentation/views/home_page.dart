@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_assignment/data/llm_service.dart';
 import 'package:home_assignment/domain/repositories/chat_repository.dart';
 import 'package:home_assignment/presentation/cubits/chat_cubit.dart';
 import 'package:home_assignment/presentation/cubits/home_page_cubit.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => ChatCubit(ChatRepository()),
+      create: (_) => ChatCubit(ChatRepository(llmService: LLMService())),
       child: Scaffold(
         body: Container(
           color: AppColors.primary,

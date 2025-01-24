@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_assignment/presentation/cubits/chat_cubit.dart';
 import 'package:home_assignment/presentation/cubits/chat_state.dart';
 import 'package:home_assignment/presentation/views/widgets/page_view_screen.dart';
+import 'package:intl/intl.dart';
 
 import 'widgets/chat_bubble.dart';
 import 'widgets/message_input_bar.dart';
@@ -12,6 +13,7 @@ class ChatInterfaceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String messageTime = DateFormat('hh:mm a').format(DateTime.now());
     return PageViewScreen(
       index: '2',
       children: [
@@ -27,15 +29,21 @@ class ChatInterfaceScreen extends StatelessWidget {
                       shrinkWrap: true,
                       physics: ScrollPhysics(),
                       children: [
-                        ...state.messages.reversed.map((message) {
-                          return ChatBubble(
-                            message: message.content,
-                            messageTime: message.time,
-                            senderType: message.isUser
-                                ? SenderType.sender
-                                : SenderType.receiver,
-                          );
-                        }),
+                        if (state is ChatSuccess)
+                          ...state.messages.reversed.map((message) {
+                            return ChatBubble(
+                              message: message.content,
+                              messageTime: message.time,
+                              senderType: message.isUser
+                                  ? SenderType.sender
+                                  : SenderType.receiver,
+                            );
+                          }),
+                        ChatBubble(
+                          message: 'Hello, how can I help you?',
+                          messageTime: '',
+                          senderType: SenderType.receiver,
+                        ),
                         ChatBubble(
                           message: 'I walked 2000 steps today',
                           messageTime: '12:04 PM',
@@ -54,21 +62,6 @@ class ChatInterfaceScreen extends StatelessWidget {
                           messageTime: '',
                           senderType: SenderType.receiver,
                         ),
-                        // ListView.builder(
-                        //   reverse: true,
-                        //   padding: EdgeInsets.zero,
-                        //   itemCount: state.messages.length,
-                        //   itemBuilder: (context, index) {
-                        //     final message = state.messages[index];
-                        //     return ChatBubble(
-                        //       message: message.content,
-                        //       messageTime: message.time,
-                        //       senderType: message.isUser
-                        //           ? SenderType.sender
-                        //           : SenderType.receiver,
-                        //     );
-                        //   },
-                        // ),
                       ],
                     );
                   },

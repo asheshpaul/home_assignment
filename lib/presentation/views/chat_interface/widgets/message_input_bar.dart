@@ -49,7 +49,7 @@ class MessageInputBar extends StatelessWidget {
             icon: const Icon(Icons.send),
             color: Colors.white70,
             onPressed: () {
-              final message = controller.text;
+              final message = controller.text.trim();
               if (message.isNotEmpty) {
                 context.read<ChatCubit>().sendMessage(message);
                 controller.clear();
